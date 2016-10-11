@@ -1,6 +1,8 @@
 /*eslint-disable no-console*/
 
 import { is, asEffect } from 'redux-saga/utils'
+import { inspect } from 'util';
+import isPrimitive from 'is-primitive';
 
 const PENDING = 'PENDING'
 const RESOLVED = 'RESOLVED'
@@ -314,15 +316,6 @@ function logResult({status, result, error, duration}, formatter, ignoreResult) {
 
   if(status !== PENDING)
     formatter.appendData(`(${duration.toFixed(2)}ms)`)
-}
-
-function isPrimitive(val) {
-  return  typeof val === 'string'   ||
-    typeof val === 'number'   ||
-    typeof val === 'boolean'  ||
-    typeof val === 'symbol'   ||
-    val === null              ||
-    val === undefined;
 }
 
 function logFormatter() {
