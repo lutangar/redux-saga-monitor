@@ -391,8 +391,14 @@ if(IS_BROWSER) {
   window.$$LogSagas = logSaga
 }
 
+function createSagaMonitor({ verbose = false } = {}) {
+  VERBOSE = verbose;
+
+  return { effectTriggered, effectResolved, effectRejected, effectCancelled };
+}
+
 // Export the snapshot-logging function for arbitrary use by external code.
-export { logSaga }
+export { logSaga, createSagaMonitor };
 
 // Export the `sagaMonitor` to pass to the middleware.
-export default { effectTriggered, effectResolved, effectRejected, effectCancelled }
+export default { effectTriggered, effectResolved, effectRejected, effectCancelled };
