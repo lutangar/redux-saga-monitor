@@ -365,7 +365,8 @@ function logFormatter() {
   }
 
   function getLog() {
-    let msgs = [], msgsArgs = []
+    const msgs = []
+    let msgsArgs = []
     for (var i = 0; i < logs.length; i++) {
       msgs.push(logs[i].msg)
       msgsArgs = msgsArgs.concat(logs[i].args)
